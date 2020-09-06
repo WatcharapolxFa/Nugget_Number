@@ -1,83 +1,24 @@
-#include <iostream>
-
+#include<iostream>
 using namespace std;
-
-int main()
-
+bool check(int num)
 {
-
-    int n, x;
-
-    bool c;
-
-    cin >> n;
-
-    if (n < 6)   cout << "no" << endl;
-
-    else
-
-    {
-
-        for (int qq = 6; qq <= n; qq++)
-
-        {
-
-            c = 0;
-
-            for (int i = 0; 20 * i <= n; i++)
-
-            {
-
-                for (int j = 0; 9 * j <= n; j++)
-
-                {
-
-                    for (int k = 0; 6 * k <= n; k++)
-
-                    {
-
-                        x = (6 * k) + (9 * j) + (20 * i);
-
-                        if (x == qq && x > 0)
-
-                        {
-
-                            if (c)
-
-                                break;
-
-                            else
-
-                            {
-
-                                cout << x << endl;
-
-                                c = 1;
-
-                            }
-
-                        }
-
-                    }
-
-                    if (c)
-
-                        break;
-
-                }
-
-                if (c)
-
-                    break;
-
-            }
-
-        }
-
-    }
-
-    //system("pause");
-
-    return 0;
-
+	int six = num - 6; int nine = num - 9; int yesib = num - 20;
+	if (six == 0) return true;
+	else if (nine == 0) return true;
+	else if (nine == 0) return true;
+	else if (six < 0) return false;
+	return check(six) || check(nine) || check(yesib);
+}
+int main()
+{
+	int a, i, b = 0;
+	cin >> a;
+	for (i = 1; i <= a; i++)
+		if (check(i))
+		{
+			cout << i << endl;
+			b++;
+		}
+	if (b == 0) cout << "no";
+	return 0;
 }
